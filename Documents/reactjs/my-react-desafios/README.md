@@ -1,3 +1,61 @@
+1era Entrega de ReactJs:
+agregue el carrito mediante la libreria de Fontawesome,
+tuve hartos problemas con mi terminal y errores para correr el npm start, debido a que me sale el error: 0308010C, si le sale s elimina mediante el cmd:
+export NODE_OPTIONS= --openssl-legacy-provider.
+Fue la unica forma que consegui pues se me habia roto todo.
+No entendi muy bien el tema de los props, de como y donde queria  o para que.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 Below you will find some information on how to perform common tasks.<br>

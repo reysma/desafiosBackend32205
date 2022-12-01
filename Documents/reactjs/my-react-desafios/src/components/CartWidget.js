@@ -1,5 +1,9 @@
 import React from 'react'
 
-const Cartwidget = () => { return (<h1>CART</h1>)
+const CartWidget = () => {
+  return (
+    <i className="fa-solid fa-cart-plus"></i>
+  )
 }
-export default Cartwidget
+
+export default CartWidget
