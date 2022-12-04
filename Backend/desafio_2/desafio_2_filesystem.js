@@ -34,8 +34,9 @@ class ProductManager{
        obj.id = nextID
 
        list.push(obj)
-       
+    
     await this.write(list)
+    return obj
         
     }
     updateProduct = async (id,obj) => {
@@ -51,21 +52,22 @@ class ProductManager{
   }  
     await this.write(list)
 
-   
+
+
+    deleteProduct = async(id, list) => {
+        const list = await this.read()
+        indice = list.indexOf(id);
+        if(indice){
+            const listnew= list.splice(indice, 1)
+            return listnew;
+        }
+
+        }
+            
+    }
+
+  }
+
+  
     
-
-    deleteProduct = async(id) => {
-
-        for ( let i = 0; i<list.length;i++) {
-            if (list[i].id == id) {
-                list[i] = obj
-            fs.promise.unlink(this.list)
-            break
-    }
-
-  }await this.write(list)
-    }
-}
-}   
-
 module.exports = ProductManager
