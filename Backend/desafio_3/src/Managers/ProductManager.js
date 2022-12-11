@@ -30,5 +30,25 @@ async getProductById(id) {
     return productFound;
 }
 
+async addProduct({ title, description, price, thumbnail, code, stock}){
+    
+    const newProduct = { title, description, price, thumbnail, code, stock}
+
+    const products = await this.getProducts()
+    
+    const existCodeProduct = products.some(product => product.code === code)
+
+    if(existCodeProduct) {
+        throw new error("El codigo no se puede repetir");
+    }
+    newProduct.id =!products.length ? 1 : products[products.length - 1].id +1
+
+    products.push(newProduct);
+
+    await fs.promises.writeFile(this.path), JSON.stringify(products, null, 3);
+    return newProduct; 
+}
+
+
 }
 new ProductManagerFilesystem("producto");

@@ -3,6 +3,9 @@ import {ProductManager} from './Managers/index.js';
 
 const app = express();
 
+app.use(express.json());
+app.use(express.urlencoded({extended: true}));
+
 const PORT =8080;
 
 app.get('/api/products', async (req, res) => {
@@ -43,6 +46,28 @@ app.get("/api/products/:id", async(req, res) => {
     } catch (error) {
         console.log(error);
         res.send({success:false, error: "Ha ocurrido un error"})
+    }
+})
+
+app.post('/api/products', async (req, res) => {
+    try {
+        const {title, description, price, thumbnail, code, stock} = req.body
+
+        if(!title || !description || !price || !thumbnail || !code || !stock) {
+            return res.send({
+                success: false, 
+                error: "Todos los datos son requeridos", 
+            });
+        }
+
+       const savedProduct = await ProductManager.addProduct({
+        title,
+        description,
+
+       })
+
+    } catch (error) {
+        
     }
 })
 
