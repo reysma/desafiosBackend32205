@@ -1,6 +1,7 @@
 import fs from 'fs'
-import{ } from 'express'
-export class ProductManagerFilesystem {
+
+
+ class ManagerFile {
 
     constructor(path) {
         this.path = path
@@ -18,6 +19,9 @@ export class ProductManagerFilesystem {
     } catch (error) {
         console.log(error);
     }
+}
+#writeFile(data){
+    return fs.promises.writeFile(this.path, JSON.stringify(products, null, 3))
 }
 async getProducts() {
     const response = await fs.promises.readFile(this.path, "utf-8");
@@ -50,5 +54,26 @@ async addProduct({ title, description, price, thumbnail, code, status, stock, ca
 }
 
 
+    async update(id, newData) {
+        const products = await this.getProducts();
+
+        const productIndex = products.findIndex((product) => product.id ===id);
+
+        if(productIndex === -1) {
+            throw new error("Producto No Encontrado");
+        }
+        const product = products[productIndex];
+
+        products[productIndex] = {...product, ...newData};
+
+        await this.#writeFile(products);
+
+        return products[productIndex];
+    }
+
+
+
+
 }
-new ProductManagerFilesystem("producto");
+export default ManagerFile
+
