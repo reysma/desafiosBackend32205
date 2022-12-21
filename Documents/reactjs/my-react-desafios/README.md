@@ -5,7 +5,25 @@ export NODE_OPTIONS= --openssl-legacy-provider.
 Fue la unica forma que consegui pues se me habia roto todo.
 No entendi muy bien el tema de los props, de como y donde queria  o para que.
 
+17dic22
+nuevamente salio el error err_ossl_evp_unsupported' react
+se corrigio añadiendo al package.json un cambio en el script 
+"scripts": {
+    "start": "react-scripts --openssl-legacy-provider start",
+    "build": "react-scripts --openssl-legacy-provider build",
 
+instalando npm i react-router-dom salio esto
+
+ERROR: npm v9.1.2 is known not to run on Node.js v12.22.9. You'll need to upgrade
+to a newer Node.js version in order to use this version of npm. This version of
+npm supports the following node versions: `^14.17.0 || ^16.13.0 || >=18.0.0`. You
+can find the latest version at https://nodejs.org/.
+
+ERROR:
+/usr/local/lib/node_modules/npm/lib/utils/exit-handler.js:22
+  const hasLoadedNpm = npm?.config.loaded
+
+Tengo ubuntu y no he podido actualizar el nodejs para actualizar el npm
 
 
 
