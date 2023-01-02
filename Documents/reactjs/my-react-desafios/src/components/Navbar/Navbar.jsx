@@ -1,10 +1,12 @@
 import React from 'react'
-import Cartwidget from './Cart/CartWidget'
+//import Cart from '../Cart/Cart' <Cart/>
+import { NavLink } from 'react-router-dom'
+import './Navbar.css'
 
 
 const Navbar = () => {
   return (
-    <nav className="navbar navbar-expand-lg bg-light">
+    <nav className="navbar navbar-expand-lg bg-primary">
   <div className="container-fluid">
     <a className="navbar-brand" href="/some/valid/uri">EQUILAB</a>
     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -13,20 +15,26 @@ const Navbar = () => {
     <div className="collapse navbar-collapse" id="navbarSupportedContent">
       <ul className="navbar-nav me-auto mb-2 mb-lg-0">
         <li className="nav-item">
-          <a className="nav-link active" aria-current="page" to="/some/valid/uri">Home</a>
+          <a className="nav-link active" aria-current="page" href="/some/valid/uri">Home</a>
         </li>
         <li className="nav-item">
-          <a className="nav-link" to="/some/valid/uri">Journals</a>
+          <a className="nav-link" href="/some/valid/uri">Journals</a>
         </li>
         <li className="nav-item dropdown">
           <a className="nav-link dropdown-toggle" href="/some/valid/uri" role="button" data-bs-toggle="dropdown" aria-expanded="false">
           Acquire
           </a>
           <ul className="dropdown-menu">
-            <li><a className="dropdown-item" href="/some/valid/uri">EQUIPOS</a></li>
-            <li><a className="dropdown-item" href="/some/valid/uri">COTIZACIONES</a></li>
-            <li><hr className="dropdown-divider"/></li>
-            <li><a className="dropdown-item" href="/some/valid/uri">Something else here</a></li>
+            <li>
+              <NavLink className= {'navlink'}  to="/checkout">Checkout</NavLink>
+              </li>
+            <li>
+              <NavLink className={'navlink'} to="/cart">Cart</NavLink>
+              </li>
+           
+            <li>
+              <NavLink className={'navlink'}  to="/item/detail/:id">ItemList</NavLink>
+              </li>
           </ul>
         </li>
         <li className="nav-item">
@@ -38,7 +46,7 @@ const Navbar = () => {
         <button className="btn btn-outline-success" type="submit">Search</button>
       </form>
     </div>
-    <Cartwidget/>
+    
   </div>
 </nav>
   )

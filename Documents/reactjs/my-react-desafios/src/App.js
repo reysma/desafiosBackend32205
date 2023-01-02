@@ -1,26 +1,28 @@
-import React, { Component } from 'react';
+import React, { } from 'react';
 
-import './App.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-import Navbar from './components/Navbar'
-import ItemListContainer from './components/ItemListContainer/ItemListContainer.jsx'
+import Navbar from './components/Navbar/Navbar.jsx'
+import ItemListContainer from './components/ItemListContainer/ItemListContainer.jsx';
+import ItemDetailContainer from './components/ItemDetailContainer/itemDetailContainer.jsx';
 import Checkout from './components/Checkout/Checkout';
-import CartWidget from './components/Cart/CartWidget';
-import itemDetailContainer from './components/ItemDetailContainer/itemDetailContainer';
+import Cart from './components/Cart/Cart';
+
 
 
       function App() {
 
         return (
           <Router>
+           
+            <Navbar/> 
             <h1>EQUILAB CIENTIFICA</h1>
-            <Navbar/>
             <Routes>
-            <Route path='/'element = {<ItemListContainer/>}/>
+            <Route path='/' element = {<ItemListContainer/>}/>
             <Route path='/item/detail/:id' element = {<ItemDetailContainer/>}/>
-            <Route path='/cart'element = {<CartWidget/>}/>
-            <Route path='/checkout'element = {<Checkout/>}/>
+            <Route path='/cart' element = {<Cart/>}/>
+            <Route path='/checkout' element = {<Checkout/>}/>
             </Routes>
+            <Cart/>
           </Router>
         )
       }

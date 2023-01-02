@@ -1,0 +1,6 @@
+[ {"title":"AA PinAAcle","description":"Modelo A-900","price":"9000$","thumbnail":"imagen1","code":538949,"stock":4,"id":1},
+{"title":"Analizador Elemental","description":"EA-2400","price":"7200$","thumbnail":"imagen 2","code":456789,"stock":6,"id":2},
+{"title":"Cromatografo Gases Clarus","description":"GC-590","price":"7200$","thumbnail":"imagen 3","code":435701,"stock":6,"id":3},
+{"title":"ICP-MS Nexion","description":"Modelo ICP-1000","price":"110000$","thumbnail":"imagen 4","code":356703,"stock":4,"id":4},
+{"title":"Spolight","description":"S-200","price":"65000$","thumbnail":"imagen 5","code":410674,"stock":6,"id":5},
+{"title":"Espectrofotometro UV Lambda","description":"UV-1050","price":"75000$","thumbnail":"imagen 6","code":659821,"stock":6,"id":6}]
