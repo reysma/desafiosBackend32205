@@ -1,0 +1,13 @@
+
+    <h1>Ecommerce</h1>
+    
+{{ #each products }}
+<a href="/products/{{this.title}}"></a>
+<div>
+    <b> {{ this.title }}</b> 
+    <img src="{{ this.thumbnail }}">
+    <b> {{ this.description }}</b>
+    <b> {{ this.price }}</b>
+    <b> {{ this.code }}</b>
+</div>
+{{/each}}
