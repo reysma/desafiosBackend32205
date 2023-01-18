@@ -7,7 +7,7 @@ router.get('/', (req, res) => {
 })
 
 router.get('/:views', (req, res) => {
-    res.render('index', {})
+    res.render('index', {}) 
 })
 
-export default router
+export default router 

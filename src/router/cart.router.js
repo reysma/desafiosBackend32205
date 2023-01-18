@@ -8,7 +8,7 @@ router.get('/', async (req, res) => {
     try {
         const carts = await cartModel.find();
 
-        if(!carts) {
+        if(!carts) { 
             return res.send({
                 succes:false,
             })}

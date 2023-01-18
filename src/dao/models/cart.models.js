@@ -10,7 +10,7 @@ const cartSchema = new mongoose.Schema({
         }
     ]
 
-})
+}) 
 
 const CartModel = mongoose.model(cartCollection, cartSchema);
 export default CartModel

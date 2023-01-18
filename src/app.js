@@ -6,7 +6,7 @@ import handlebars from 'express-handlebars'
 import mongoose from 'mongoose'
 
 const PORT = 8080;
-const app = express();
+const app = express(); 
 
 //trae informacion como json
 app.use(express.json());
