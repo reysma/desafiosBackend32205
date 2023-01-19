@@ -6,7 +6,7 @@ router.get('/', (req, res) => {
     res.render('index', {})
 })
 
-router.get('/:views', (req, res) => {
+router.get('/views', (req, res) => {
     res.render('index', {}) 
 })
 
