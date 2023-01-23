@@ -1,9 +1,9 @@
-import { Router } from 'express';
-import productsModel from '../dao/models/products.models.js';
+import express from 'express';
+import { productsModel } from '../dao/models/products.models.js';
 
-const router = Router()
+const router = express.Router() 
 
-router.get('/', async (req, res) => {
+router.get('/', async (req, res) => {s
     
 
     try {
@@ -16,7 +16,7 @@ router.get('/', async (req, res) => {
        
 
     } catch (error) {
-        console.log(error)
+        console.log("usuario sin conexion mongo", error)
     }
 
 })
@@ -42,7 +42,7 @@ router.post('/', async (req, res) => {
     })
 }
     catch (error) {
-        console.log(error);
+        console.log("enviando sin conexion mongo", error);
     }
 
 })

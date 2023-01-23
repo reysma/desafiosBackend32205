@@ -4,14 +4,13 @@ const productsCollection = 'products';
 
 const productsSchema = new mongoose.Schema({
     title: String, 
-    description: String,
+    model: String,
     price: Number, 
-    thumbnail: [String],
-    code: String,
-    status: String,
+    image: [String],
+    code: Number, 
     stock: Number, 
-    category: String, 
 })
 
 const ProductsModel = mongoose.model(productsCollection, productsSchema);
+
 export default ProductsModel

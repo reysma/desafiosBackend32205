@@ -6,7 +6,7 @@ import fs from 'fs'
     constructor(path) {
         this.path = path
 
-        this.#init()
+        this.#init() 
 
     }
 #init() {
