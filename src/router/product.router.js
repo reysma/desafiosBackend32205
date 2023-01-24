@@ -1,51 +1,19 @@
-import express from 'express';
-import { ProductsModel } from '../dao/models/products.models.js';
+import{ Router } from 'express'
+import productsModel  from '../dao/models/products.model.js';
 
 const router = Router()
 
-router.get('/', async (req, res) => {s
-    
+router.get('/', (req, res) => {
+    const products = await productsModel.find()
 
-    try {
-        const products = await productsModel.find();
-
-        if(!products) {
-            return res.send({
-                succes:false,
-            })}
-       
-
-    } catch (error) {
-        console.log("usuario sin conexion mongo", error)
-    }
-
+    res.json(products)
 })
 
+router.get('/views', (req, res) => {
 
-router.post('/', async (req, res) => {
+    const result = await productsModel.create(req.body)
 
-    try {
-        const newProduct = req.body;
-        
-        if(!newProduct) {
-            return res.send({
-                succes: false,
-            })
-        }
-    
-    const result = await productsModel.create(newProduct);
-    
-    res.send({
-        succes:true,
-        status: result,
-        payload: newProduct,
-    })
-}
-    catch (error) {
-        console.log("enviando sin conexion mongo", error);
-    }
-
+    res.json(result)
 })
 
-
-export default router
+export default router 

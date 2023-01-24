@@ -1,7 +1,9 @@
-<<<<<<< HEAD
- 
-=======
-[ {"title":"Phmetro","description":"Modelo A-300","price":"2000$","thumbnail":"imagen1","code":538949,"stock":4,"id":1},
-{"title":"Analizador Elemental","description":"EA-2400","price":"7200$","thumbnail":"imagen 3","code":456789,"stock":6,"id":2},
-{"title":"Analizador Elemental","description":"EA-2400","price":"7200$","thumbnail":"imagen 3","code":456789,"stock":6,"id":3}]
->>>>>>> f4c5cc091a259cc6fbe76c0c313a4861ef603196
+[ {"title":"Absorción Atomica","model":"A900","price":"6000$","image":"src= ../images/AA PinAAcle 90.jpg","code":538949,"stock":3,"id":1},
+{"title":"Anlizador Elemental","model":"A900","price":"6000$","image":"src= ../images/Analizador elemental EA240.jpg","code":538949,"stock":3,"id":2},
+{"title":"GC Clarus","model":"A900","price":"6000$","image":"src= ../images/AA PinAAcle 90.jpg","code":538949,"stock":3,"id":3},
+{"title":"GC MS","model":"A900","price":"6000$","image":"src= ../images/AA PinAAcle 90.jpg","code":538949,"stock":3,"id":4},
+{"title":"ICP MS","model":"A900","price":"6000$","image":"src= ../images/AA PinAAcle 90.jpg","code":538949,"stock":3,"id":5},
+{"title":"ICP OES","model":"A900","price":"6000$","image":"src= ../images/AA PinAAcle 90.jpg","code":538949,"stock":3,"id":6},
+{"title":"Spotlight","model":"A900","price":"6000$","image":"src= ../images/AA PinAAcle 90.jpg","code":538949,"stock":3,"id":7},
+{"title":"UV Lambda","model":"A900","price":"6000$","image":"src= ../images/AA PinAAcle 90.jpg","code":538949,"stock":3,"id":8}
+]

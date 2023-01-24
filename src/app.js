@@ -5,13 +5,8 @@ import viewsProduct from './router/views.product.router.js'
 import handlebars from 'express-handlebars'
 import mongoose from 'mongoose'
 
-const app = express(); 
 const PORT = 8080;
-<<<<<<< HEAD
-
-=======
 const app = express(); 
->>>>>>> f4c5cc091a259cc6fbe76c0c313a4861ef603196
 
 //trae informacion como json
 app.use(express.json());

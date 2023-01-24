@@ -34,9 +34,9 @@ async getProductById(id) {
     return productFound;
 }
 
-async addProduct({ title, description, price, thumbnail, code, status, stock, category}){
+async addProduct({ title, modelo, price, thumbnail, code, stock}){
     
-    const newProduct = { title, description, price, thumbnail, code, status, stock, category}
+    const newProduct = { title, modelo, price, thumbnail, code, stock}
 
     const products = await this.getProducts()
     
