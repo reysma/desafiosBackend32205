@@ -1,7 +1,7 @@
 import express from 'express';
 import { ProductsModel } from '../dao/models/products.models.js';
 
-const router = express.Router() 
+const router = Router()
 
 router.get('/', async (req, res) => {s
     
