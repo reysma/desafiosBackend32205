@@ -3,12 +3,12 @@ import mongoose from "mongoose";
 const productsCollection = 'products';
 
 const productsSchema = new mongoose.Schema({
+    id: String,
     title: String, 
     model: String,
     price: Number, 
-    thumbnail: [String],
-    code: String, 
-    status: String,
+    image: String,
+    code: Number, 
     stock: Number, 
 })
 

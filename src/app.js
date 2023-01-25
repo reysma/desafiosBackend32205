@@ -25,7 +25,7 @@ app.use('/views_products', productRouter);
 
 app.get('/', (req,res) => { res.send('Conecting')})
 
-//Conexion a BD
+//Conexion a BD con Mongo Atlas
 const MONGO_URI = 'mongodb+srv://reysma:458260rey@cluster0.o8moagj.mongodb.net/?retryWrites=true&w=majority';
 
 mongoose.connect(MONGO_URI, error =>{ 

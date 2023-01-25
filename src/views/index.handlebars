@@ -1,26 +1,41 @@
 
     <h1>Ecommerce</h1>
     
-<table class="table">
+{{!-- <table class="table">
   <thead>
     <tr>
       
       <th scope="col">title</th>
-      <th scope="col">description</th>
-      <th scope="col">Imagen</th>
+      <th scope="col">model</th>
+      <th scope="col">image</th>
       <th scope="col">precio</th>
+      <th scope="col">code</th>
       <th scope="col">stock</th>
     </tr>
   </thead>
-</table>
-
-
+</table> 
 <tr>
     <th scope ="row"> {{ this.id }}</th> 
-    <td> {{ this.title}}</td>
-    <td> {{ this.description }}</td>
-    <td><img src="{{ this.thumbnail }}"></td>
+    <td> {{ this.title }}</td>
+    <td> {{ this.model }}</td>
+    <td><img src="{{ this.image}}"></td>
     <td> {{ this.price }}</td>
     <td> {{ this.code }}</td>
-</tr>
+</tr>--}}
+
+{{ #each products }}
+
+<a href="/products/ {{ this.title }}">
+<div>
+
+  <b> {{ this.id }}</b> 
+    <b> {{ this.title }}</b>
+    <b> {{ this.model }}</b>
+    <img wdth= "50" src="{{ this.image}}">
+    <i> {{ this.price }}</i>
+    <i> {{ this.code }}</i>
+    <i> {{ this.stock }}</i>
+</div>
+    
+</a>
 {{/each}} 

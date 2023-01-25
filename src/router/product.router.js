@@ -3,13 +3,13 @@ import productsModel  from '../dao/models/products.model.js';
 
 const router = Router()
 
-router.get('/', (req, res) => {
+router.get('/', async (req, res) => {
     const products = await productsModel.find()
 
     res.json(products)
 })
 
-router.get('/views', (req, res) => {
+router.post('/', async (req, res) => {
 
     const result = await productsModel.create(req.body)
 
