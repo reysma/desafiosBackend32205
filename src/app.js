@@ -1,14 +1,50 @@
 import express from 'express'
 import session from 'express-session'
 import FileStore from 'session-file-store'
+import MongoStore from 'connect-mongo'
 import handlebars from 'express-handlebars'
 import __dirname from './utils.js'
 import productRouter from './router/product.router.js'
 import viewsProduct from './router/views.product.router.js'
-//import cartRouter from './router/cart.router.js'
-
+import sessionRouter from './router/sesion.router.js'
 import mongoose from 'mongoose'
 import { Server } from 'socket.io'
+
+
+
+//configurar session de user
+app.use(session({
+  store: MongoStore.create({
+      mongoUrl: uri,
+      dbName: "sessions",
+      mongoOptions: {
+          useNewUrlParser: true,
+          useUnifiedTopology: true
+      },
+      ttl: 10
+  }),
+  secret: '123456',
+  resave: true,
+  saveUninitialized: true
+}))
+
+function auth(req, res, next) {
+  if(req.session?.user) return next()
+
+  return res.status(401).send(console.log('error'))
+}
+
+app.get('/', (req, res) => res.send('OK'))
+app.get('/login', (req, res) => {
+  const { username } = req.query
+
+  req.session.user = username
+
+  res.send('Login Success')
+})
+app.get('/logout', (req, res) => req.session.destroy(err => res.send(err)) )
+app.get('/private', auth, (req, res) => res.send('Private Page'))
+
 
 const PORT = 8080;
 const app = express(); 
@@ -40,7 +76,7 @@ app.get('/', (req,res) => { res.send('Conecting')})
 
 //Conexion a BD con Mongo Atlas
 const MONGO_URI = 'mongodb+srv://reysma:458260rey@cluster0.o8moagj.mongodb.net/?retryWrites=true&w=majority'
-    dbName: 'baseCRUD'
+ 
    
 mongoose.set('strictQuery',false)
 mongoose.connect(MONGO_URI, error =>{ 
