@@ -1,4 +1,6 @@
 import express from 'express'
+import session from 'express-session'
+import FileStore from 'session-file-store'
 import handlebars from 'express-handlebars'
 import __dirname from './utils.js'
 import productRouter from './router/product.router.js'
