@@ -23,14 +23,14 @@ router.get('/', async (req, res) => {
     }
 
 })
-//Muestraun solo producto
-router.get('/: title', async (req, res) => {
+//Muestra un solo producto
+router.get('/', async (req, res) => {
     
 
     try {
         const title = req.params.title
 
-        const product = await productsModel.findone({ title: title }).lean().exec()
+        const product = await productsModel.findOne({ title: title }).lean().exec()
 
         res.render('one', { product })
 

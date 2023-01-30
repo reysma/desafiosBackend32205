@@ -25,27 +25,6 @@ router.get('/', async (req, res) => {
     }
 
 })
-//Muestraun solo producto
-router.get('/: title', async (req, res) => {
-    
-
-    try {
-        const title = req.params.title
-
-        const product = await productsModel.findone({ title: title }).lean().exec()
-
-        res.render('one', { product })
-
-        if(!product) {
-            return res.send({
-                succes:false,
-            })}
-       
-    } catch (error) {
-        console.log("usuario sin conexion mongo", error)
-    }
-
-})
 //delete products
 router.get('/delete/:id', async (req, res) => {
     const id = new mongoose.Types.ObjectId(req.params.id)
@@ -56,16 +35,22 @@ router.get('/delete/:id', async (req, res) => {
     res.redirect('/products')
 })
 
-
 // vista para crear products
 router.get('/create', async (req, res) => {
-    res.render('create', {} )
+    res.render('create', {})
 })
 
+//ingresar product new
 router.post('/create', async (req, res) => {
 
     try {
         const newProduct = req.body;
+        const productGenerated = new productModel(newProduct);
+    await productGenerated.save();
+
+    console.log(pokemonGenerated);
+
+    res.redirect('/product/' + productGenerated.title)
         
         if(!newProduct) {
             return res.send({
@@ -73,16 +58,30 @@ router.post('/create', async (req, res) => {
             })
         }
     
-    const result = await productsModel.create(newProduct);
-    
-    res.send({
-        succes:true,
-        status: result,
-        payload: newProduct,
-    })
 }
     catch (error) {
         console.log("enviando sin conexion mongo", error);
+    }
+
+})
+//Muestra un solo producto
+router.get('/: title', async (req, res) => {
+    
+
+    try {
+        const title = req.params.title
+
+        const product = await productsModel.findOne({ title: title }).lean().exec()
+
+        res.render('one', { product })
+
+        if(!product) {
+            return res.send({
+                succes:false,
+            })}
+       
+    } catch (error) {
+        console.log("usuario sin conexion mongo", error)
     }
 
 })

@@ -1,11 +1,8 @@
 <div>
-    TODO LISTO A USAR WEBSOCKETS!!!!
-</div>
-<script src="/socket.io/socket.io.js"></script>
-<script src="/js/index.js"></script>
+  
     <h1>Ecommerce</h1>
     
-{{!-- <table class="table">
+<table class="table">
   <thead>
     <tr>
       
@@ -17,29 +14,34 @@
       <th scope="col">stock</th>
     </tr>
   </thead>
-</table> 
-<tr>
-    <th scope ="row"> {{ this.id }}</th> 
-    <td> {{ this.title }}</td>
-    <td> {{ this.model }}</td>
-    <td><img src="{{ this.image}}"></td>
-    <td> {{ this.price }}</td>
-    <td> {{ this.code }}</td>
-</tr>--}}
 
 {{#each products}}
-
-<a href="/products/ {{ this.title }}">
-<div>
-
-  <b> {{ this.id }}</b> 
+<tr>
+   
     <b> {{ this.title }}</b>
     <b> {{ this.model }}</b>
+    <b> {{ this.id }}</b>
     <img wdth= "50" src="{{ this.image}}">
     <i> {{ this.price }}</i>
     <i> {{ this.code }}</i>
     <i> {{ this.stock }}</i>
-</div>
+</tr>
     
 </a>
 {{/each}} 
+</table> 
+</div>
+
+<style>
+    table,
+    th,
+    tr {
+        border: 1px solid;
+    }
+    .title {
+        text-align: center;
+    }
+    .product-list {
+        width: 100%;
+    }
+</style>
