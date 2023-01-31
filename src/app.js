@@ -20,17 +20,20 @@ app.use(express.static( __dirname + '/public'));
 
 
 //Ruta de Vistas
-app.use('/products', viewsProduct);
-app.use('/views_products', productRouter);
+app.use('/products',productRouter);
+app.use('/views_products',  viewsProduct );
 
 app.get('/', (req,res) => { res.send('Conecting')})
 
 //Conexion a BD
-const MONGO_URI = 'mongodb+srv://reysma:458260reysma@cluster0.598euju.mongodb.net/?retryWrites=true&w=majority';
-mongoose.connect(MONGO_URI, error =>{ 
+const MONGO_URI = 'mongodb+srv://reysma:458260rey@cluster0.o8moagj.mongodb.net/?retryWrites=true&w=majority';
+mongoose.set("strictQuery", false);
+mongoose.connect(MONGO_URI, 
+  { dbName: "baseCRUD" },  
+  (error) => { 
       if(error) {
         console.log('Not Found Connecting');
-      return
+      process.exit();
         }
     console.log('DB connected!');
     app.listen(PORT, () => console.log('Server Listening...!!!'));
