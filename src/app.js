@@ -3,8 +3,6 @@ import handlebars from 'express-handlebars'
 import __dirname from './utils.js'
 import productRouter from './router/product.router.js'
 import viewsProduct from './router/views.product.router.js'
-//import cartRouter from './router/cart.router.js'
-
 import mongoose from 'mongoose'
 import { Server } from 'socket.io'
 
