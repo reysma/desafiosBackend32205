@@ -1,37 +1,45 @@
-<div>
-  
-    <h1>Ecommerce</h1>
-    
+<h1>Ecommerce</h1>
+<div>  
 <table class="table">
   <thead>
     <tr>
-      
-      <th scope="col">title</th>
-      <th scope="col">model</th>
-      <th scope="col">image</th>
-      <th scope="col">precio</th>
-      <th scope="col">code</th>
-      <th scope="col">stock</th>
+      <th>Title</th>
+      <th>Model</th>
+      <th>Id</th>
+      <th>Imagen</th>
+      <th>Precio</th>
+      <th>Code</th>
+      <th>Stock</th>
     </tr>
   </thead>
-
-{{#each products}}
-<tr>
-   
-    <b> {{ this.title }}</b>
-    <b> {{ this.model }}</b>
-    <b> {{ this.id }}</b>
-    <img wdth= "50" src="{{ this.image}}">
-    <i> {{ this.price }}</i>
-    <i> {{ this.code }}</i>
-    <i> {{ this.stock }}</i>
-</tr>
-    
-</a>
-{{/each}} 
-</table> 
-</div>
-
+ <tbody> 
+    {{#each products}}
+    <tr>
+        <td> 
+          <b>{{ this.title }}</b>
+          </td>
+          <td> 
+          <b>{{ this.model }}</b>
+          </td>
+            <td> 
+          <b>{{ this.id }}</b>
+          </td>
+          <td>
+            <img wdth="50"src="{{ this.image }}">
+          </td>
+          <td> 
+            <p>{{ this.price }}</p>
+          </td>
+          <td> 
+            <p>{{ this.code }}</p>
+          </td>
+          <td> 
+            <p>{{ this.stock }}</p>
+          </td>
+    </tr>
+    {{/each}} 
+</tbody>
+</table>
 <style>
     table,
     th,

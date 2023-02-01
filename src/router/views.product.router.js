@@ -48,7 +48,6 @@ router.post('/create', async (req, res) => {
         const productGenerated = new productModel(newProduct);
     await productGenerated.save();
 
-    console.log(pokemonGenerated);
 
     res.redirect('/product/' + productGenerated.title)
         
