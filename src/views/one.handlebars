@@ -1,8 +1,14 @@
-<h1>My Ecommerce</h1> 
-<div>
-    <b>{{product.title}}</b>
-    <img width="50" src="{{product.image}}">
-    <i>{{product.model}}</i>
-    <hr>
-    <a href="/product/delete/{{product._id}}">Delete</a>
-</div>
+<h1>My Ecommerce</h1>
+<main>
+    <div>
+        <h3>{{product.title}}</h3>
+        <p>{{product.model}}</p>
+        <h3>${{product.price}}</h3>
+        <a href="/product/delete/{{product._id}}">Delete</a>
+        <button value={{product._id}}>Agregar al carrito</button>
+    </div>
+    <div>
+        <img src={{product.image}} alt="image"/>
+    </div>
+</main>
+<script src="/js/products.js"></script>

@@ -1,55 +1,68 @@
 <h1>Ecommerce</h1>
-<div>  
-<table class="table">
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Model</th>
-      <th>Id</th>
-      <th>Imagen</th>
-      <th>Precio</th>
-      <th>Code</th>
-      <th>Stock</th>
-    </tr>
-  </thead>
- <tbody> 
-    {{#each products}}
-    <tr>
-        <td> 
+<div>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Model</th>
+        <th>Id</th>
+        <th>Imagen</th>
+        <th>Price</th>
+        <th>Code</th>
+        <th>Stock</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each products}}
+      <tr>
+        <td>
           <b>{{ this.title }}</b>
-          </td>
-          <td> 
+        </td>
+        <td>
           <b>{{ this.model }}</b>
-          </td>
-            <td> 
-          <b>{{ this.id }}</b>
-          </td>
-          <td>
-            <img wdth="50"src="{{ this.image }}">
-          </td>
-          <td> 
-            <p>{{ this.price }}</p>
-          </td>
-          <td> 
-            <p>{{ this.code }}</p>
-          </td>
-          <td> 
-            <p>{{ this.stock }}</p>
-          </td>
-    </tr>
-    {{/each}} 
-</tbody>
-</table>
+        </td>
+        <td>
+          <b>{{ this._id }}</b>
+        </td>
+        <td>
+          <img src={{this.image}} alt="image" />
+        </td>
+        <td>
+          <p>${{ this.price }}</p>
+        </td>
+        <td>
+          <p>{{ this.code }}</p>
+        </td>
+        <td>
+          <p>{{ this.stock }}</p>
+        </td>
+      </tr>
+      {{/each}}
+    </tbody>
+  </table>
+  <div>
+    {{#if hasPrevPage}}
+    <a href="{{prevLink}}">Anterior</a>
+    {{/if}}
+    {{ page }}
+    {{#if hasNextPage}}
+    <a href="{{nextLink}}">Siguiente</a>
+    {{/if}}
+  </div>
+
+</div>
 <style>
-    table,
-    th,
-    tr {
-        border: 1px solid;
-    }
-    .title {
-        text-align: center;
-    }
-    .product-list {
-        width: 100%;
-    }
+  table,
+  th,
+  tr {
+    border: 1px solid;
+  }
+
+  .title {
+    text-align: center;
+  }
+
+  .product-list {
+    width: 100%;
+  }
 </style>

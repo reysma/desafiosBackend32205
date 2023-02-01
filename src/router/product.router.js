@@ -8,12 +8,13 @@ router.get('/', async (req, res) => {
 
     try {
         const products = await productsModel.find().lean().exec()
-        console.log(products)
+        
         res.render('index', {
             products
         })
         if(!products) {
             return res.send({
+                
                 succes:false,
             })}
        

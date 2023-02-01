@@ -3,8 +3,11 @@ import handlebars from 'express-handlebars'
 import __dirname from './utils.js'
 import productRouter from './router/product.router.js'
 import viewsProduct from './router/views.product.router.js'
+import cartsRouter from './router/cart.router.js'
 import mongoose from 'mongoose'
+import session from "express-session"
 import bodyParser from 'body-parser'
+import MongoStore from "connect-mongo";
 
 
 const PORT = 8080;
@@ -22,10 +25,29 @@ app.set('view engine', 'handlebars');
 //Carpeta Publica
 app.use(express.static( __dirname + '/public'));
 
+
+// Sesiones
+app.use(
+  session({
+    store: MongoStore.create({
+      mongoUrl: MONGOOSE_URI,
+      dbName: "ecommerce",
+      mongoOptions: {
+        useNewUrlParser: true,
+      },
+      ttl: 100,
+    }),
+    secret: "Venezuela",
+    resave: true,
+    saveUninitialized: true,
+  })
+);
+
 //Ruta de Vistas
 app.use('/products', productRouter) ;
 
 app.use('/views_products', viewsProduct );
+app.use('/carts', cartsRouter);
 
 app.get('/', (req,res) => { res.send('Conecting')})
 
