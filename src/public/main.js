@@ -6,7 +6,7 @@ socket.on("products", (products) => {
       (product) => `
         <tr>
             <td> ${product.title} </td>
-            <td> ${product.mod} </td> 
+            <td> ${product.model} </td> 
             <td> ${product.price} </td>
             <td> <img height="50px" width="50px" src=${product.image} /></td>
             <td> ${product.code} </td>

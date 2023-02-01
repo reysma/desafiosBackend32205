@@ -10,6 +10,14 @@ router.get('/', async (req, res) => {
 
 
     try {
+        const { sort, query, page, limit } = req.query;
+        const options = {
+          limit: limit || 5,
+          page: page || 1,
+          sort: { price: sort } || { price: 1 },
+          lean: true,
+        };
+        
         const products = await productsModel.find().lean().exec()
         
         res.render('index', {

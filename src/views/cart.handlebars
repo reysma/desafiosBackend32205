@@ -1,0 +1,25 @@
+
+    <h1>Cart</h1>
+    {{#each cart}}
+      <div>
+        <div class="product__card">
+          <img src={{this.product.image}} alt="image" />
+          <div>
+            <h4>{{this.product.title}}</h4>
+            <h5>${{this.product.price}}</h5>
+            <p>{{this.quantity}}</p>
+          </div>
+        </div>
+        <button  value={{this.product._id}}>Delete</button>
+      </div>
+    {{/each}}
+    <div>
+      <h3>Total:</h3>
+      <div class="cart__menu">
+        <button>empty cart</button>
+        <button>confirm purchase</button>
+      </div>
+    </div>
+  </div>
+
+<script src="/js/cart.js"></script>
