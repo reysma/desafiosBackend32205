@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import { Router } from 'express'
 import mongoose from 'mongoose'
 import productsModel from '../dao/models/products.models.js'
@@ -47,7 +46,6 @@ router.get('/create', async (req, res) => {
 })
 
 //ingresar product new
-=======
 import { Router } from 'express';
 import mongoose from 'mongoose';
 import productsModel  from '../dao/models/products.model.js';
@@ -75,7 +73,7 @@ router.get('/', async (req, res) => {
     }
 
 })
-//Muestraun solo producto
+//Muestra un solo producto
 router.get('/: title', async (req, res) => {
     
 
@@ -112,20 +110,17 @@ router.get('/create', async (req, res) => {
     res.render('create', {} )
 })
 
->>>>>>> 73c7c3fe10183adfd7d85178c2f8a04b65ab35e0
+
 router.post('/create', async (req, res) => {
 
     try {
         const newProduct = req.body;
-<<<<<<< HEAD
         const productGenerated = new productsModel(newProduct);
     await productGenerated.save();
 
     console.log(productGenerated);
 
     res.redirect('/product/' + productGenerated.title)
-=======
->>>>>>> 73c7c3fe10183adfd7d85178c2f8a04b65ab35e0
         
         if(!newProduct) {
             return res.send({
@@ -133,8 +128,7 @@ router.post('/create', async (req, res) => {
             })
         }
     
-<<<<<<< HEAD
-=======
+
     const result = await productsModel.create(newProduct);
     
     res.send({
@@ -142,14 +136,14 @@ router.post('/create', async (req, res) => {
         status: result,
         payload: newProduct,
     })
->>>>>>> 73c7c3fe10183adfd7d85178c2f8a04b65ab35e0
+
 }
     catch (error) {
         console.log("enviando sin conexion mongo", error);
     }
 
 })
-<<<<<<< HEAD
+
 //Muestra un solo producto
 router.get('/: title', async (req, res) => {
     
@@ -174,9 +168,5 @@ router.get('/: title', async (req, res) => {
 
 
 export default router
-=======
 
 
-export default router
-
->>>>>>> 73c7c3fe10183adfd7d85178c2f8a04b65ab35e0

@@ -30,8 +30,7 @@ socketServer.on('connection', socket => {
   })
 })
 //Ruta de Vistas
-<<<<<<< HEAD
-app.use('/products',productRouter);
+app.use('/products', productRouter);
 app.use('/views_products',  viewsProduct );
 
 app.get('/', (req,res) => { res.send('Conecting')})
@@ -45,23 +44,6 @@ mongoose.connect(MONGO_URI,
       if(error) {
         console.log('Not Found Connecting');
       process.exit();
-=======
-app.use('/api/products', productRouter);
-//app.use('/api/carts', cartRouter);
-app.use('/views_products', viewsProduct);
-
-app.get('/', (req,res) => { res.send('Conecting')})
-
-//Conexion a BD con Mongo Atlas
-const MONGO_URI = 'mongodb+srv://reysma:458260rey@cluster0.o8moagj.mongodb.net/?retryWrites=true&w=majority'
-    dbName: 'baseCRUD'
-   
-mongoose.set('strictQuery',false)
-mongoose.connect(MONGO_URI, error =>{ 
-      if(error) {
-        console.log('Not Found Connecting');
-      process.exit()
->>>>>>> 73c7c3fe10183adfd7d85178c2f8a04b65ab35e0
         }
     console.log('DB connected!');
     app.listen(PORT, () => console.log('Server Listening...!!!'));
