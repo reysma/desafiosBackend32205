@@ -25,24 +25,6 @@ app.set('view engine', 'handlebars');
 //Carpeta Publica
 app.use(express.static( __dirname + '/public'));
 
-
-// Sesiones
-app.use(
-  session({
-    store: MongoStore.create({
-      mongoUrl: MONGOOSE_URI,
-      dbName: "ecommerce",
-      mongoOptions: {
-        useNewUrlParser: true,
-      },
-      ttl: 100,
-    }),
-    secret: "Venezuela",
-    resave: true,
-    saveUninitialized: true,
-  })
-);
-
 //Ruta de Vistas
 app.use('/products', productRouter) ;
 
@@ -50,6 +32,7 @@ app.use('/views_products', viewsProduct );
 app.use('/carts', cartsRouter);
 
 app.get('/', (req,res) => { res.send('Conecting')})
+
 
 //Conexion a BD con Mongo Atlas
 const MONGO_URI = 'mongodb+srv://reysma:458260rey@cluster0.o8moagj.mongodb.net/?retryWrites=true&w=majority';
@@ -64,4 +47,24 @@ mongoose.connect(MONGO_URI,
     console.log('DB connected!');
     app.listen(PORT, () => console.log('Server Listening...!!!'));
 })     
+
+
+// Sesiones
+app.use(
+  session({
+    store: MongoStore.create({
+      mongoUrl: MONGO_URI,
+      dbName: "ecommerce",
+      mongoOptions: {
+        useNewUrlParser: true,
+      },
+      ttl: 100,
+    }),
+    secret: "Venezuela",
+    resave: true,
+    saveUninitialized: true,
+  })
+);
+
+
 
